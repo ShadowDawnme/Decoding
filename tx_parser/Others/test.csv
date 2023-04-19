@@ -1,0 +1,39 @@
+,anonymous,inputs,name,type,signature,constant,outputs,payable,stateMutability
+0,0.0,"[{'indexed': True, 'internalType': 'address', 'name': 'submittingMember', 'type': 'address'}, {'indexed': False, 'internalType': 'bytes', 'name': 'conflictingPublicKey', 'type': 'bytes'}]",ConflictingPublicKeySubmitted,event,0x99d98e35ad6445ac964c46a75c7f748e8f390ebdca5a924cd8f92d674fa34ff7,,,,
+1,0.0,"[{'indexed': True, 'internalType': 'address', 'name': 'token', 'type': 'address'}, {'indexed': False, 'internalType': 'uint256', 'name': 'amount', 'type': 'uint256'}]",ERC20RewardDistributed,event,0xb69f5873bb2e9e1cc495d5c23d2995010c3b5cdd1756e3cada2bc3f2150902cc,,,,
+2,0.0,"[{'indexed': False, 'internalType': 'uint256', 'name': 'amount', 'type': 'uint256'}]",ETHRewardDistributed,event,0xa9e4160b29b5c7db7fa61c512c4b45e7c3451c3331537f065a3417778cea5096,,,,
+3,0.0,[],KeepClosed,event,0x400fd7ee62b209afddce9dfbca204b2124c135597dff0ac92e9844e2b08927f6,,,,
+4,0.0,[],KeepTerminated,event,0x39f530c1293a870138e53618b826819a76f1fe86b5d500ba4622f9e8354a846a,,,,
+5,0.0,"[{'indexed': False, 'internalType': 'bytes', 'name': 'publicKey', 'type': 'bytes'}]",PublicKeyPublished,event,0xf62bba8b270bef3e8d0fcebc1f86567664da8ccbd03e8509d6231cc8d63f4b31,,,,
+6,0.0,"[{'indexed': True, 'internalType': 'bytes32', 'name': 'digest', 'type': 'bytes32'}]",SignatureRequested,event,0x34f611bedd4f8c135323bbfc4921e3f6e4feb7eef591036eed6af5462e6cfab0,,,,
+7,0.0,"[{'indexed': True, 'internalType': 'bytes32', 'name': 'digest', 'type': 'bytes32'}, {'indexed': False, 'internalType': 'bytes32', 'name': 'r', 'type': 'bytes32'}, {'indexed': False, 'internalType': 'bytes32', 'name': 's', 'type': 'bytes32'}, {'indexed': False, 'internalType': 'uint8', 'name': 'recoveryID', 'type': 'uint8'}]",SignatureSubmitted,event,0xb19546e9e0b503d103dd4ae295f4d526e9115adf7c902ead329b1f2404efd35f,,,,
+8,0.0,[],SlashingFailed,event,0x9caa8d499152520a1b3e11b41d51a51e5d1699294ebccdb9de0faa824dba8aae,,,,
+9,,[],checkBondAmount,function,0xdc3d6da8,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+10,,"[{'internalType': 'uint8', 'name': '_v', 'type': 'uint8'}, {'internalType': 'bytes32', 'name': '_r', 'type': 'bytes32'}, {'internalType': 'bytes32', 'name': '_s', 'type': 'bytes32'}, {'internalType': 'bytes32', 'name': '_signedDigest', 'type': 'bytes32'}, {'internalType': 'bytes', 'name': '_preimage', 'type': 'bytes'}]",checkSignatureFraud,function,0xbf9c8301,1.0,"[{'internalType': 'bool', 'name': '_isFraud', 'type': 'bool'}]",0.0,view
+11,,[],closeKeep,function,0xa15c3bbb,0.0,[],0.0,nonpayable
+12,,[],digest,function,0x52a82b65,1.0,"[{'internalType': 'bytes32', 'name': '', 'type': 'bytes32'}]",0.0,view
+13,,"[{'internalType': 'bytes32', 'name': '', 'type': 'bytes32'}]",digests,function,0x01ac4293,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+14,,"[{'internalType': 'address', 'name': '_tokenAddress', 'type': 'address'}, {'internalType': 'uint256', 'name': '_value', 'type': 'uint256'}]",distributeERC20Reward,function,0x5a89f810,0.0,[],0.0,nonpayable
+15,,[],distributeETHReward,function,0x2930e170,0.0,[],1.0,payable
+16,,"[{'internalType': 'address', 'name': '_member', 'type': 'address'}]",getMemberETHBalance,function,0xd5cc8b0f,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+17,,[],getMembers,function,0x9eab5253,1.0,"[{'internalType': 'address[]', 'name': '', 'type': 'address[]'}]",0.0,view
+18,,[],getOpenedTimestamp,function,0xf4c2b4c1,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+19,,[],getOwner,function,0x893d20e8,1.0,"[{'internalType': 'address', 'name': '', 'type': 'address'}]",0.0,view
+20,,[],getPublicKey,function,0x2e334452,1.0,"[{'internalType': 'bytes', 'name': '', 'type': 'bytes'}]",0.0,view
+21,,[],honestThreshold,function,0x6806db1f,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+22,,"[{'internalType': 'address', 'name': '_owner', 'type': 'address'}, {'internalType': 'address[]', 'name': '_members', 'type': 'address[]'}, {'internalType': 'uint256', 'name': '_honestThreshold', 'type': 'uint256'}, {'internalType': 'uint256', 'name': '_memberStake', 'type': 'uint256'}, {'internalType': 'uint256', 'name': '_stakeLockDuration', 'type': 'uint256'}, {'internalType': 'address', 'name': '_tokenStaking', 'type': 'address'}, {'internalType': 'address', 'name': '_keepBonding', 'type': 'address'}, {'internalType': 'address payable', 'name': '_keepFactory', 'type': 'address'}]",initialize,function,0x79a80491,0.0,[],0.0,nonpayable
+23,,[],isActive,function,0x22f3e2d4,1.0,"[{'internalType': 'bool', 'name': '', 'type': 'bool'}]",0.0,view
+24,,"[{'internalType': 'bytes32', 'name': '_digest', 'type': 'bytes32'}]",isAwaitingSignature,function,0xcb7cf187,1.0,"[{'internalType': 'bool', 'name': '', 'type': 'bool'}]",0.0,view
+25,,[],isClosed,function,0xc2b6b58c,1.0,"[{'internalType': 'bool', 'name': '', 'type': 'bool'}]",0.0,view
+26,,[],isTerminated,function,0xd1cc9976,1.0,"[{'internalType': 'bool', 'name': '', 'type': 'bool'}]",0.0,view
+27,,[],memberStake,function,0xc9de240d,1.0,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",0.0,view
+28,,"[{'internalType': 'uint256', 'name': '', 'type': 'uint256'}]",members,function,0x5daf08ca,1.0,"[{'internalType': 'address', 'name': '', 'type': 'address'}]",0.0,view
+29,,[],owner,function,0x8da5cb5b,1.0,"[{'internalType': 'address', 'name': '', 'type': 'address'}]",0.0,view
+30,,[],publicKey,function,0x63ffab31,1.0,"[{'internalType': 'bytes', 'name': '', 'type': 'bytes'}]",0.0,view
+31,,[],returnPartialSignerBonds,function,0x6ed15f94,0.0,[],1.0,payable
+32,,[],seizeSignerBonds,function,0x07acd5cb,0.0,[],0.0,nonpayable
+33,,"[{'internalType': 'bytes32', 'name': '_digest', 'type': 'bytes32'}]",sign,function,0x799cd333,0.0,[],0.0,nonpayable
+34,,"[{'internalType': 'bytes', 'name': '_publicKey', 'type': 'bytes'}]",submitPublicKey,function,0xabd14f37,0.0,[],0.0,nonpayable
+35,,"[{'internalType': 'bytes32', 'name': '_r', 'type': 'bytes32'}, {'internalType': 'bytes32', 'name': '_s', 'type': 'bytes32'}, {'internalType': 'uint8', 'name': '_recoveryID', 'type': 'uint8'}]",submitSignature,function,0x7df2b357,0.0,[],0.0,nonpayable
+36,,"[{'internalType': 'uint8', 'name': '_v', 'type': 'uint8'}, {'internalType': 'bytes32', 'name': '_r', 'type': 'bytes32'}, {'internalType': 'bytes32', 'name': '_s', 'type': 'bytes32'}, {'internalType': 'bytes32', 'name': '_signedDigest', 'type': 'bytes32'}, {'internalType': 'bytes', 'name': '_preimage', 'type': 'bytes'}]",submitSignatureFraud,function,0xf15d1a90,0.0,"[{'internalType': 'bool', 'name': '_isFraud', 'type': 'bool'}]",0.0,nonpayable
+37,,"[{'internalType': 'address', 'name': '_member', 'type': 'address'}]",withdraw,function,0x51cff8d9,0.0,[],0.0,nonpayable

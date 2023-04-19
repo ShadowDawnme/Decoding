@@ -1,0 +1,703 @@
+[
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "submittingMember",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "conflictingPublicKey",
+                "type": "bytes"
+            }
+        ],
+        "name": "ConflictingPublicKeySubmitted",
+        "type": "event",
+        "signature": "0x99d98e35ad6445ac964c46a75c7f748e8f390ebdca5a924cd8f92d674fa34ff7"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "token",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "ERC20RewardDistributed",
+        "type": "event",
+        "signature": "0xb69f5873bb2e9e1cc495d5c23d2995010c3b5cdd1756e3cada2bc3f2150902cc"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "ETHRewardDistributed",
+        "type": "event",
+        "signature": "0xa9e4160b29b5c7db7fa61c512c4b45e7c3451c3331537f065a3417778cea5096"
+    },
+    {
+        "anonymous": false,
+        "inputs": [],
+        "name": "KeepClosed",
+        "type": "event",
+        "signature": "0x400fd7ee62b209afddce9dfbca204b2124c135597dff0ac92e9844e2b08927f6"
+    },
+    {
+        "anonymous": false,
+        "inputs": [],
+        "name": "KeepTerminated",
+        "type": "event",
+        "signature": "0x39f530c1293a870138e53618b826819a76f1fe86b5d500ba4622f9e8354a846a"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "publicKey",
+                "type": "bytes"
+            }
+        ],
+        "name": "PublicKeyPublished",
+        "type": "event",
+        "signature": "0xf62bba8b270bef3e8d0fcebc1f86567664da8ccbd03e8509d6231cc8d63f4b31"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "digest",
+                "type": "bytes32"
+            }
+        ],
+        "name": "SignatureRequested",
+        "type": "event",
+        "signature": "0x34f611bedd4f8c135323bbfc4921e3f6e4feb7eef591036eed6af5462e6cfab0"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "bytes32",
+                "name": "digest",
+                "type": "bytes32"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "r",
+                "type": "bytes32"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "s",
+                "type": "bytes32"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "recoveryID",
+                "type": "uint8"
+            }
+        ],
+        "name": "SignatureSubmitted",
+        "type": "event",
+        "signature": "0xb19546e9e0b503d103dd4ae295f4d526e9115adf7c902ead329b1f2404efd35f"
+    },
+    {
+        "anonymous": false,
+        "inputs": [],
+        "name": "SlashingFailed",
+        "type": "event",
+        "signature": "0x9caa8d499152520a1b3e11b41d51a51e5d1699294ebccdb9de0faa824dba8aae"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "checkBondAmount",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xdc3d6da8"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "_v",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_r",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_s",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_signedDigest",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_preimage",
+                "type": "bytes"
+            }
+        ],
+        "name": "checkSignatureFraud",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "_isFraud",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xbf9c8301"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "closeKeep",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xa15c3bbb"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "digest",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x52a82b65"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "name": "digests",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x01ac4293"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_tokenAddress",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_value",
+                "type": "uint256"
+            }
+        ],
+        "name": "distributeERC20Reward",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x5a89f810"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "distributeETHReward",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function",
+        "signature": "0x2930e170"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_member",
+                "type": "address"
+            }
+        ],
+        "name": "getMemberETHBalance",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xd5cc8b0f"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getMembers",
+        "outputs": [
+            {
+                "internalType": "address[]",
+                "name": "",
+                "type": "address[]"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x9eab5253"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getOpenedTimestamp",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xf4c2b4c1"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getOwner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x893d20e8"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "getPublicKey",
+        "outputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x2e334452"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "honestThreshold",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x6806db1f"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_owner",
+                "type": "address"
+            },
+            {
+                "internalType": "address[]",
+                "name": "_members",
+                "type": "address[]"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_honestThreshold",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_memberStake",
+                "type": "uint256"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_stakeLockDuration",
+                "type": "uint256"
+            },
+            {
+                "internalType": "address",
+                "name": "_tokenStaking",
+                "type": "address"
+            },
+            {
+                "internalType": "address",
+                "name": "_keepBonding",
+                "type": "address"
+            },
+            {
+                "internalType": "address payable",
+                "name": "_keepFactory",
+                "type": "address"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x79a80491"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "isActive",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x22f3e2d4"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_digest",
+                "type": "bytes32"
+            }
+        ],
+        "name": "isAwaitingSignature",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xcb7cf187"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "isClosed",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xc2b6b58c"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "isTerminated",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xd1cc9976"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "memberStake",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0xc9de240d"
+    },
+    {
+        "constant": true,
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "name": "members",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x5daf08ca"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x8da5cb5b"
+    },
+    {
+        "constant": true,
+        "inputs": [],
+        "name": "publicKey",
+        "outputs": [
+            {
+                "internalType": "bytes",
+                "name": "",
+                "type": "bytes"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function",
+        "signature": "0x63ffab31"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "returnPartialSignerBonds",
+        "outputs": [],
+        "payable": true,
+        "stateMutability": "payable",
+        "type": "function",
+        "signature": "0x6ed15f94"
+    },
+    {
+        "constant": false,
+        "inputs": [],
+        "name": "seizeSignerBonds",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x07acd5cb"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_digest",
+                "type": "bytes32"
+            }
+        ],
+        "name": "sign",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x799cd333"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "bytes",
+                "name": "_publicKey",
+                "type": "bytes"
+            }
+        ],
+        "name": "submitPublicKey",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xabd14f37"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "bytes32",
+                "name": "_r",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_s",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "uint8",
+                "name": "_recoveryID",
+                "type": "uint8"
+            }
+        ],
+        "name": "submitSignature",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x7df2b357"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "_v",
+                "type": "uint8"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_r",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_s",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes32",
+                "name": "_signedDigest",
+                "type": "bytes32"
+            },
+            {
+                "internalType": "bytes",
+                "name": "_preimage",
+                "type": "bytes"
+            }
+        ],
+        "name": "submitSignatureFraud",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "_isFraud",
+                "type": "bool"
+            }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0xf15d1a90"
+    },
+    {
+        "constant": false,
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_member",
+                "type": "address"
+            }
+        ],
+        "name": "withdraw",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function",
+        "signature": "0x51cff8d9"
+    }
+]

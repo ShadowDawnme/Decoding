@@ -1,0 +1,244 @@
+/****** Object:  Table [dbo].[ce]    Script Date: 2022/8/20 14:12:45 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ce](
+	[es] [nchar](66) NOT NULL,
+	[anonymous] [bit] NOT NULL,
+	[ename] [nchar](64) NOT NULL,
+	[contractAddress] [nchar](42) NOT NULL,
+ CONSTRAINT [PK_ce] PRIMARY KEY CLUSTERED 
+(
+	[es] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[cf]    Script Date: 2022/8/20 14:13:11 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[cf](
+	[fs] [nchar](10) NOT NULL,
+	[fname] [nchar](64) NOT NULL,
+	[stateMutability] [nchar](32) NOT NULL,
+	[contractAddress] [nchar](42) NOT NULL,
+ CONSTRAINT [PK_cf] PRIMARY KEY CLUSTERED 
+(
+	[fs] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[ei]    Script Date: 2022/8/20 14:13:23 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[ei](
+	[es] [nchar](66) NOT NULL,
+	[einame] [nchar](64) NOT NULL,
+	[eiInternalType] [nchar](32) NOT NULL,
+	[eiType] [nchar](32) NOT NULL,
+	[indexed] [bit] NOT NULL,
+ CONSTRAINT [PK_ei] PRIMARY KEY CLUSTERED 
+(
+	[es] ASC,
+	[einame] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[ei]  WITH CHECK ADD  CONSTRAINT [FK_ei_ce] FOREIGN KEY([es])
+REFERENCES [dbo].[ce] ([es])
+GO
+
+ALTER TABLE [dbo].[ei] CHECK CONSTRAINT [FK_ei_ce]
+GO
+
+/****** Object:  Table [dbo].[fi]    Script Date: 2022/8/20 14:13:36 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[fi](
+	[fs] [nchar](10) NOT NULL,
+	[finame] [nchar](64) NOT NULL,
+	[fiInternalType] [nchar](32) NOT NULL,
+	[fiType] [nchar](32) NOT NULL,
+ CONSTRAINT [PK_fi_1] PRIMARY KEY CLUSTERED 
+(
+	[fs] ASC,
+	[finame] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[fi]  WITH CHECK ADD  CONSTRAINT [FK_fi_cf] FOREIGN KEY([fs])
+REFERENCES [dbo].[cf] ([fs])
+GO
+
+ALTER TABLE [dbo].[fi] CHECK CONSTRAINT [FK_fi_cf]
+GO
+
+/****** Object:  Table [dbo].[fo]    Script Date: 2022/8/20 14:13:47 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[fo](
+	[fs] [nchar](10) NOT NULL,
+	[foname] [nchar](64) NOT NULL,
+	[foInternalType] [nchar](32) NOT NULL,
+	[foType] [nchar](32) NOT NULL,
+ CONSTRAINT [PK_fo_1] PRIMARY KEY CLUSTERED 
+(
+	[fs] ASC,
+	[foname] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[fo]  WITH CHECK ADD  CONSTRAINT [FK_fo_cf] FOREIGN KEY([fs])
+REFERENCES [dbo].[cf] ([fs])
+GO
+
+ALTER TABLE [dbo].[fo] CHECK CONSTRAINT [FK_fo_cf]
+GO
+
+/****** Object:  Table [dbo].[t]    Script Date: 2022/8/20 14:13:58 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[t](
+	[th] [nchar](66) NOT NULL,
+	[blockNumber] [bigint] NOT NULL,
+ CONSTRAINT [PK_t] PRIMARY KEY CLUSTERED 
+(
+	[th] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[tei]    Script Date: 2022/8/20 14:14:07 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tei](
+	[th] [nchar](66) NOT NULL,
+	[es] [nchar](66) NOT NULL,
+	[einame] [nchar](64) NOT NULL,
+	[eiArgumentValue] [nchar](66) NOT NULL,
+ CONSTRAINT [PK_tei] PRIMARY KEY CLUSTERED 
+(
+	[th] ASC,
+	[es] ASC,
+	[einame] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tei]  WITH CHECK ADD  CONSTRAINT [FK_tei_t] FOREIGN KEY([th])
+REFERENCES [dbo].[t] ([th])
+GO
+
+ALTER TABLE [dbo].[tei] CHECK CONSTRAINT [FK_tei_t]
+GO
+
+/****** Object:  Table [dbo].[tf]    Script Date: 2022/8/20 14:14:15 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tf](
+	[th] [nchar](66) NOT NULL,
+	[gas] [int] NOT NULL,
+	[gasPrice] [int] NOT NULL,
+	[fs] [nchar](10) NOT NULL,
+	[value] [real] NOT NULL,
+ CONSTRAINT [PK_tf] PRIMARY KEY CLUSTERED 
+(
+	[th] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tf]  WITH CHECK ADD  CONSTRAINT [FK_tf_t] FOREIGN KEY([th])
+REFERENCES [dbo].[t] ([th])
+GO
+
+ALTER TABLE [dbo].[tf] CHECK CONSTRAINT [FK_tf_t]
+GO
+
+/****** Object:  Table [dbo].[tfi]    Script Date: 2022/8/20 14:14:26 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tfi](
+	[th] [nchar](66) NOT NULL,
+	[finame] [nchar](64) NOT NULL,
+	[fiArgumentValue] [nchar](66) NOT NULL,
+ CONSTRAINT [PK_tfi] PRIMARY KEY CLUSTERED 
+(
+	[th] ASC,
+	[finame] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tfi]  WITH CHECK ADD  CONSTRAINT [FK_tfi_t] FOREIGN KEY([th])
+REFERENCES [dbo].[t] ([th])
+GO
+
+ALTER TABLE [dbo].[tfi] CHECK CONSTRAINT [FK_tfi_t]
+GO
+
+/****** Object:  Table [dbo].[tfo]    Script Date: 2022/8/20 14:14:34 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[tfo](
+	[th] [nchar](66) NOT NULL,
+	[foname] [nchar](64) NOT NULL,
+	[foArgumentValue] [nchar](66) NOT NULL,
+ CONSTRAINT [PK_tfo] PRIMARY KEY CLUSTERED 
+(
+	[th] ASC,
+	[foname] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[tfo]  WITH CHECK ADD  CONSTRAINT [FK_tfo_t] FOREIGN KEY([th])
+REFERENCES [dbo].[t] ([th])
+GO
+
+ALTER TABLE [dbo].[tfo] CHECK CONSTRAINT [FK_tfo_t]
+GO
+

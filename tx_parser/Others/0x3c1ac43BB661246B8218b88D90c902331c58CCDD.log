@@ -1,0 +1,3 @@
+2022-03-29 17:00:17,687 - d:\pycharm\simulate\python_simulate\main_part\event_process.py - event_decoder - web3 hasnt return corresponding event ABI. 
+                target ABI address is: 0x50379f632ca68D36E50cfBC8F78fe16bd1499d1e
+target event signature is: 0x55801cfe493000b734571da1694b21e7f66b11e8ce9fdaa0524ecb59105e73e7

@@ -1,0 +1,15 @@
+2022-05-15 12:07:41,133 - d:\pycharm\simulate\python_simulate\main_part\Contract_Geter_origianl.py - LinkParser - May need to check this website
+            cant found contract/accounts hash in this website. 
+
+            target hash is: https://etherscan.io/accounts/label/education?size=100   
+
+2022-05-15 12:07:52,583 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _new_conn - Starting new HTTPS connection (1): etherscan.io:443
+2022-05-15 12:07:53,203 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _make_request - https://etherscan.io:443 "GET /tokens/label/education?size=100 HTTP/1.1" 200 None
+2022-05-15 12:08:27,674 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _new_conn - Starting new HTTPS connection (1): etherscan.io:443
+2022-05-15 12:08:28,259 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _make_request - https://etherscan.io:443 "GET /tokens/label/electricity?size=100 HTTP/1.1" 200 None
+2022-05-15 12:08:29,747 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _new_conn - Starting new HTTPS connection (1): etherscan.io:443
+2022-05-15 12:08:30,227 - D:\pycharm\python3.10\lib\site-packages\urllib3\connectionpool.py - _make_request - https://etherscan.io:443 "GET /accounts/label/electronics?size=100 HTTP/1.1" 200 None
+2022-05-15 12:09:11,328 - d:\pycharm\simulate\python_simulate\main_part\Contract_Geter_origianl.py - LinkParser - May need to check this website
+            cant found contract/accounts hash in this website. 
+
+            target hash is: https://etherscan.io/accounts/label/electronics?size=100   
